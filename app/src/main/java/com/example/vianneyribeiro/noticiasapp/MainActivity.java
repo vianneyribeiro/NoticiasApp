@@ -19,15 +19,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Noticia>> {
 
-    private static final String LOG_TAG = MainActivity.class.getName();
-
-    private static final String GUARDIAN_NEWS_URL_TEMPLATE =
-            "http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01&api-key=test";
-
+    private static final String GUARDIAN_NEWS_BASE_URL = "http://content.guardianapis.com/";
+    private static final String SEARCH = GUARDIAN_NEWS_BASE_URL + "search?q=debate&tag=politics/politics&from-date=2014-01-01&api-key=test";
+    private static final int NOTICIA_LOADER_ID = 1;
     private TextView mEmptyStateTextView;
     private NoticiaAdapter mAdapter;
-    private static final int NOTICIA_LOADER_ID = 1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<Noticia>> onCreateLoader(int i, Bundle bundle) {
-        return new NoticiaLoader(this, GUARDIAN_NEWS_URL_TEMPLATE);
+        return new NoticiaLoader(this, SEARCH);
     }
 
     @Override
