@@ -30,15 +30,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView noticiaListView =  findViewById(R.id.list);
+        ListView noticiaListView = findViewById(R.id.list);
 
         mEmptyStateTextView = findViewById(R.id.empty_view);
-     noticiaListView.setEmptyView(mEmptyStateTextView);
+        noticiaListView.setEmptyView(mEmptyStateTextView);
 
         mAdapter = new NoticiaAdapter(this, new ArrayList<Noticia>());
         noticiaListView.setAdapter(mAdapter);
 
-       noticiaListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        noticiaListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Noticia currentNoticia = mAdapter.getItem(position);
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
     }
 
+
     @Override
     public Loader<List<Noticia>> onCreateLoader(int i, Bundle bundle) {
         return new NoticiaLoader(this, SEARCH);
@@ -88,5 +89,5 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mAdapter.clear();
     }
 
-    }
+}
 
