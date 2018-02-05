@@ -72,15 +72,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     @Override
-    public void onLoadFinished(Loader<List<Noticia>> loader, List<Noticia> stories) {
+    public void onLoadFinished(Loader<List<Noticia>> loader, List<Noticia> noticias) {
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
 
         mEmptyStateTextView.setText(R.string.no_news_found);
 
         mAdapter.clear();
-        if (stories != null && !stories.isEmpty()) {
-            mAdapter.addAll(stories);
+        if (noticias != null && !noticias.isEmpty()) {
+            mAdapter.addAll(noticias);
         }
     }
 

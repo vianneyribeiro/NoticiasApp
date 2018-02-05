@@ -16,8 +16,6 @@ import java.util.List;
 
 public class NoticiaAdapter extends ArrayAdapter<Noticia>{
 
-    private static final String LOG_TAG = NoticiaAdapter.class.getName();
-
 
     public NoticiaAdapter(Context context, List<Noticia> stories) {
         super(context, 0, stories);

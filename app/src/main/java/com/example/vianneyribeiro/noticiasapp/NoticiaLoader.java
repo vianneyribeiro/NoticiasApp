@@ -12,8 +12,6 @@ import java.util.List;
 public class NoticiaLoader extends AsyncTaskLoader<List<Noticia>> {
 
     private String mUrl;
-    private static final String LOG_TAG = NoticiaLoader.class.getName();
-
 
     public NoticiaLoader(Context context, String url) {
         super(context);
